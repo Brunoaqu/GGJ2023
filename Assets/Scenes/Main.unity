@@ -252,5 +252,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0708fa14f697c3f4f922184a2709f34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile_danger: {fileID: 3646591363672678374, guid: 540b675a49e105844a029a65eca8c231, type: 3}
-  tile_normal: {fileID: 3927497678277707840, guid: f125b6988689d414c83ebe700fdba58c, type: 3}
+  DangerTile: {fileID: 3646591363672678374, guid: 540b675a49e105844a029a65eca8c231, type: 3}
+  SafeTile: {fileID: 3927497678277707840, guid: f125b6988689d414c83ebe700fdba58c, type: 3}

@@ -1,25 +1,20 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Score : MonoBehaviour {
-    public Text ScoreText;
-    int score = 1;
-
-    private IEnumerator ScoreUp(float time) {
-        while (true) {
-            ScoreText.text = score.ToString();
-            score++;
-            yield return new WaitForSeconds(time);
-        }
-    }
+    public int scoreValue = 0;
+    TMP_Text score;
 
     void Start() {
-        StartCoroutine(ScoreUp(1));
+        score = GetComponent<TMP_Text>();
+        Debug.Log(score.text);
     }
 
     // Update is called once per frame
     void Update() {
-
+        scoreValue++;
+        score.text = "SCORE: " + scoreValue;
     }
 }

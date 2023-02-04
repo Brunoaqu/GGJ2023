@@ -4,50 +4,123 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {   
-    public float jump;
     public float speed;
-    private Rigidbody2D rb;
-    private bool isGrounded;
+    public GameObject roots;
+    public float rootsY = 0;
+    public Vector3 rootPos;
+
+    public GameObject downRoot;
+    public GameObject rightRoot;
+    public GameObject leftRoot;
+
+    public GameObject rootCurve;
+
+    public bool gameOver; 
+
+    public string lastMove;
 
     void Awake() 
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
+        lastMove = "down";
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Jump") && isGrounded) 
-        {
-            rb.AddForce(Vector2.up * jump);
-        }
+    void Update () {
+        
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(Vector2.left * speed);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(Vector2.right * speed);
-        }
-    }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground")) {
-            isGrounded = true;
+        if (Input.GetKeyDown("left")){
+            
+            transform.rotation = Quaternion.Euler(0,0,-90);
+
+            rootPos = roots.transform.position;
+            float newX = roots.transform.position.x -2 ;
+            float newY = roots.transform.position.y;
+            float newZ = roots.transform.position.z;
+
+            roots.transform.position = new Vector3(newX, newY, newZ);
+
+            if (lastMove == "left"){
+                Instantiate(leftRoot,rootPos,transform.rotation);
+            } else if(lastMove == "down"){
+                Instantiate(rootCurve,rootPos,Quaternion.Euler(0,180,0));
+            } else if(lastMove == "up"){
+                Instantiate(rootCurve,rootPos,Quaternion.Euler(0,180,-90));
+            } else if(lastMove == "right"){
+                gameOver = true;
+                Debug.Log(gameOver);
+            }
+
+            lastMove = "left";
+
         }
-    }
-    
-    private void OnCollisionExit2D(Collision2D other) 
-    {
-       if (other.gameObject.CompareTag("Ground")) {
-            isGrounded = false;
+        if (Input.GetKeyDown("right")){
+            
+            transform.rotation = Quaternion.Euler(0,0,90);
+
+            rootPos = roots.transform.position;
+            float newX = roots.transform.position.x + 2;
+            float newY = roots.transform.position.y;
+            float newZ = roots.transform.position.z;
+
+            roots.transform.position = new Vector3(newX, newY, newZ);
+
+            if (lastMove == "right"){
+                Instantiate(leftRoot,rootPos,transform.rotation);
+            } else if(lastMove == "down"){
+                Instantiate(rootCurve,rootPos,Quaternion.Euler(0,0,0));
+            } else if(lastMove == "up"){
+                Instantiate(rootCurve,rootPos,Quaternion.Euler(0,0,-90));
+            } else if(lastMove == "left"){
+                gameOver = true;
+                Debug.Log(gameOver);
+            }
+            
+            lastMove = "right";
+        
+        }
+        if (Input.GetKeyDown("down")){
+            
+            transform.rotation = Quaternion.Euler(0,0,0);
+
+            rootPos = roots.transform.position;
+            float newX = roots.transform.position.x;
+            float newY = roots.transform.position.y - 2;
+            float newZ = roots.transform.position.z;
+
+            roots.transform.position = new Vector3(newX, newY, newZ);
+
+            if (lastMove == "down"){
+                Instantiate(leftRoot,rootPos,transform.rotation);
+            } else if(lastMove == "right"){
+                Instantiate(rootCurve,rootPos,Quaternion.Euler(0,180,270));
+            } else if(lastMove == "left"){
+                Instantiate(rootCurve,rootPos,Quaternion.Euler(0,0,270));
+            }
+
+            lastMove = "down";
+
+        }
+        if (Input.GetKeyDown("up")){
+
+            transform.rotation = Quaternion.Euler(0,0,180);
+
+            rootPos = roots.transform.position;
+            float newX = roots.transform.position.x;
+            float newY = roots.transform.position.y + 2;
+            float newZ = roots.transform.position.z;
+
+            roots.transform.position = new Vector3(newX, newY, newZ);
+
+            if (lastMove == "up"){
+                Instantiate(leftRoot,rootPos,transform.rotation);
+            } else if(lastMove == "right"){
+                Instantiate(rootCurve,rootPos,Quaternion.Euler(0,0,90));
+            } else if(lastMove == "left"){
+                Instantiate(rootCurve,rootPos,Quaternion.Euler(0,180,90));
+            }
+
+            lastMove = "up";
         }
     }
 }

@@ -1888,6 +1888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62126c6a91fbf6520ab9e3f695f42256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 0
 --- !u!1 &710037974
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,6 +3714,8 @@ GameObject:
   - component: {fileID: 1237317863}
   - component: {fileID: 1237317865}
   - component: {fileID: 1237317864}
+  - component: {fileID: 1237317866}
+  - component: {fileID: 1237317867}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -3780,6 +3783,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237317862}
   m_CullTransparentMesh: 1
+--- !u!114 &1237317866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237317862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70557dc6a0a2b7c4a93dc90d82a54de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1237317867
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237317862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 662e375cbfffa285c95eaf57a6039521, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1366677744
 GameObject:
   m_ObjectHideFlags: 0
@@ -4850,6 +4885,7 @@ GameObject:
   - component: {fileID: 1609788908}
   - component: {fileID: 1609788910}
   - component: {fileID: 1609788909}
+  - component: {fileID: 1609788911}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4974,6 +5010,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609788907}
   m_CullTransparentMesh: 1
+--- !u!114 &1609788911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609788907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70557dc6a0a2b7c4a93dc90d82a54de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1613581669
 GameObject:
   m_ObjectHideFlags: 0

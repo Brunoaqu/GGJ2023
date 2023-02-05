@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject rootCurve;
 
     [SerializeField] private Score score;
-    [SerializeField] private LastScore lastScore;
 
     public string lastMove;
 
@@ -30,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
             Application.LoadLevel(Application.loadedLevel);
 
             Debug.Log(score.scoreValue);
-            lastScore.Set(score.scoreValue);
         }
     }
 

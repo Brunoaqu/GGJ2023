@@ -5,7 +5,7 @@ using TMPro;
 
 public class Chronometer : MonoBehaviour
 {
-    private bool toggle = false;
+    public bool toggle = false;
     public float originalValue;
     public float value;
 

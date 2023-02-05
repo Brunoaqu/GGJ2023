@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag == "Rock" || collider.gameObject.tag == "Borda") {
             Application.LoadLevel(Application.loadedLevel);
-
-            Debug.Log(score.scoreValue);
         }
     }
 

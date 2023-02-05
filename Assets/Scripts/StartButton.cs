@@ -1,23 +1,31 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour
 {
-    //Make sure to attach these Buttons in the Inspector
     public Button startButton;
+   [SerializeField] public Animator animator;
+    public float speed = 2;
 
     void Start()
     {
-     
+        startButton = GetComponent<Button>();
+        startButton.onClick.AddListener(() => StartGame());
     }
 
-    void TaskOnClick()
+    void Update()
     {
-        startButton.onClick.RemoveListener(TaskOnClick);
-       
-        startButton.gameObject.SetActive(false);
-        //Output this to console when Button1 or Button3 is clicked
-        Debug.Log("You have clicked the button!");
+        if (Input.GetKey(KeyCode.Return))
+        {
+            StartGame();
+        }
     }
 
+    void StartGame()
+    {
+        animator.Play("Float", 0, 0.0f);
+        startButton.gameObject.SetActive(false);
+        startButton.onClick.RemoveListener(StartGame);
+    }
 }

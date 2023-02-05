@@ -85,8 +85,6 @@ public class PathCreator : MonoBehaviour
 
             while (to_stack.Count > 0) {
                 int randomNumber = Random.Range(0, to_stack.Count);
-                Debug.Log("count: " + to_stack.Count);
-                Debug.Log("rand: " + randomNumber);
                 
                 Vector2Int neighbour = to_stack[randomNumber];
                 to_stack.RemoveAt(randomNumber);
@@ -132,18 +130,6 @@ public class PathCreator : MonoBehaviour
                 Instantiate(plot, new Vector3(((1.5f * x) - 1.5f *2)+xFix, ((-1.5f * y) + 1.5f *2)+yFix, 1), Quaternion.identity);
             }
         }
-        Instantiate(Root, new Vector3(-4.15f, 2.6f, 0), Quaternion.identity);
-    }
-
-    // Start is called before the first frame update
-    public void Start()
-    {
-        Draw(RandomMazeGenerator(5, 5, new Vector2Int(0,0), new Vector2Int(4,4)));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instantiate(Root, new Vector3(-4.15f, 2.6f, 1), Quaternion.identity);
     }
 }

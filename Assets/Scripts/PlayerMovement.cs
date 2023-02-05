@@ -25,10 +25,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider){
-        if (collider.gameObject.tag == "Rock"){
-            Debug.Log("Trigger");
-        } else if (collider.gameObject.tag == "Next"){
-            Debug.Log("Next");
+        if (collider.gameObject.tag == "Rock") {
+            Debug.Log("dsadsa");
+            // Application.LoadLevel(Application.loadedLevel);
         }
     }
 

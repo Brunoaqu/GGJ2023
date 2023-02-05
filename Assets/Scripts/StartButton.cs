@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour
 {
-    public Button startButton;
    [SerializeField] public Animator animator;
+    public Button startButton;
+    public AudioSource mainTheme;
+    public AudioSource menuTheme;
     public float speed = 2;
 
     void Start()
@@ -25,6 +27,8 @@ public class StartButton : MonoBehaviour
     void StartGame()
     {
         animator.Play("Float", 0, 0.0f);
+        menuTheme.Stop();
+        mainTheme.Play();
         startButton.gameObject.SetActive(false);
         startButton.onClick.RemoveListener(StartGame);
     }

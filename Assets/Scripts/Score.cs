@@ -9,12 +9,9 @@ public class Score : MonoBehaviour {
 
     void Start() {
         score = GetComponent<TMP_Text>();
-        Debug.Log(score.text);
     }
 
     // Update is called once per frame
     void Update() {
-        scoreValue++;
-        score.text = "SCORE: " + scoreValue;
     }
 }

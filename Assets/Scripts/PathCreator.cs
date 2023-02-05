@@ -6,11 +6,12 @@ public class PathCreator : MonoBehaviour
 {
     public GameObject DangerTile;
     public GameObject SafeTile;
+    public GameObject Root;
     
     public int[,] mazeTiles = new int[5,5];
     Vector2Int size = new Vector2Int(5,5);
 
-    int[,] RandomMazeGenerator(int r, int c, Vector2Int p0, Vector2Int pf)
+    public int[,] RandomMazeGenerator(int r, int c, Vector2Int p0, Vector2Int pf)
     {
         int[,] maze = new int[c,r];
         bool[,] seen = new bool[c,r];
@@ -109,8 +110,10 @@ public class PathCreator : MonoBehaviour
     }
 
 
-    void Draw(int[,] mazeLogic)
+    public void Draw(int[,] mazeLogic)
     {
+        float xFix = -1.25f;
+        float yFix = -0.4f;
         for(int y = 0; y < 5; y = y + 1)
         {
             for(int x = 0; x < 5; x = x + 1)
@@ -127,13 +130,14 @@ public class PathCreator : MonoBehaviour
                         break;
                 }
 
-                Instantiate(plot, new Vector3((2f * x) - 2f *2, (-2f * y) + 2f *2, 1), Quaternion.identity);
+                Instantiate(plot, new Vector3(((1.5f * x) - 1.5f *2)+xFix, ((-1.5f * y) + 1.5f *2)+yFix, 1), Quaternion.identity);
             }
         }
+        Instantiate(Root, new Vector3(-4.15f, 2.6f, 0), Quaternion.identity);
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         Draw(RandomMazeGenerator(5, 5, new Vector2Int(0,0), new Vector2Int(4,4)));
     }

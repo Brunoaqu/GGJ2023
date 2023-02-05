@@ -24,17 +24,23 @@ public class PlayerMovement : MonoBehaviour
         lastMove = "down";
     }
 
+    private void OnTriggerEnter2D(Collider2D collider){
+        if (collider.gameObject.tag == "Rock"){
+            Debug.Log("Trigger");
+        } else if (collider.gameObject.tag == "Next"){
+            Debug.Log("Next");
+        }
+    }
+
     // Update is called once per frame
     void Update () {
-        
-
 
         if (Input.GetKeyDown("left")){
             
             transform.rotation = Quaternion.Euler(0,0,-90);
 
             rootPos = roots.transform.position;
-            float newX = roots.transform.position.x -2 ;
+            float newX = roots.transform.position.x -1.6f ;
             float newY = roots.transform.position.y;
             float newZ = roots.transform.position.z;
 
@@ -59,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,0,90);
 
             rootPos = roots.transform.position;
-            float newX = roots.transform.position.x + 2;
+            float newX = roots.transform.position.x + 1.6f;
             float newY = roots.transform.position.y;
             float newZ = roots.transform.position.z;
 
@@ -85,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
             rootPos = roots.transform.position;
             float newX = roots.transform.position.x;
-            float newY = roots.transform.position.y - 2;
+            float newY = roots.transform.position.y - 1.6f;
             float newZ = roots.transform.position.z;
 
             roots.transform.position = new Vector3(newX, newY, newZ);
@@ -107,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
             rootPos = roots.transform.position;
             float newX = roots.transform.position.x;
-            float newY = roots.transform.position.y + 2;
+            float newY = roots.transform.position.y + 1.6f;
             float newZ = roots.transform.position.z;
 
             roots.transform.position = new Vector3(newX, newY, newZ);

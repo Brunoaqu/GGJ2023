@@ -3925,6 +3925,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 1494028861}
+  DangerTile: {fileID: 3200334328002413343, guid: 6f853f8efdcec98408559e6add57a28a, type: 3}
+  SafeTile: {fileID: 7160507642355078399, guid: f6d68b6aa6712ed4e8f06e1af5770491, type: 3}
+  Root: {fileID: 1194807811340354431, guid: 91195838b4a100443971ed840c46f293, type: 3}
 --- !u!1 &1545522110
 GameObject:
   m_ObjectHideFlags: 0

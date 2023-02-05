@@ -109,7 +109,6 @@ public class PathCreator : MonoBehaviour
         return maze;
     }
 
-
     public void Draw(int[,] mazeLogic)
     {
         float xFix = -1.25f;

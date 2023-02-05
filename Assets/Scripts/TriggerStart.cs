@@ -10,6 +10,7 @@ public class TriggerStart : MonoBehaviour
     public GameObject Root;
 
     private GameObject currentRoot;
+    private List<GameObject> currentScenario;
 
     public void Draw(int[,] mazeLogic)
     {
@@ -31,7 +32,8 @@ public class TriggerStart : MonoBehaviour
                         break;
                 }
 
-                Instantiate(plot, new Vector3(((1.5f * x) - 1.5f *2)+xFix, ((-1.5f * y) + 1.5f *2)+yFix, 1), Quaternion.identity);
+                var tile = Instantiate(plot, new Vector3(((1.5f * x) - 1.5f *2)+xFix, ((-1.5f * y) + 1.5f *2)+yFix, 1), Quaternion.identity);
+                currentScenario.Add(tile);
             }
         }
         currentRoot = Instantiate(Root, new Vector3(-4.15f, 2.6f, 0), Quaternion.identity);
@@ -39,14 +41,18 @@ public class TriggerStart : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag == "Player") {
+
+            Debug.Log("PlayerHit");
             Destroy(GameObject.FindWithTag("Player"));
+
+            game.Destroy();
 
             GameObject[] allObjects = GameObject.FindGameObjectsWithTag("RootPrefab");
             foreach(GameObject obj in allObjects) {
                 Destroy(obj);
             }
 
-            Draw(game.RandomMazeGenerator(5, 5, new Vector2Int(0,0), new Vector2Int(4,4)));
+            game.Draw(game.RandomMazeGenerator(5, 5, new Vector2Int(0,0), new Vector2Int(4,4)));
         }
     }
 }

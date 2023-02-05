@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Rock
+  - Next
+  - RootPrefab
+  - Borda
   layers:
   - Default
   - TransparentFX

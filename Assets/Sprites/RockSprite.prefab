@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 274336146930698527}
   - component: {fileID: 5199751489497092623}
   - component: {fileID: 8795055737371491814}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RockSprite
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.000000044703484, y: 0.000000037252903}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,5 +109,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 0.38125, y: 0.38124996}
   m_EdgeRadius: 0

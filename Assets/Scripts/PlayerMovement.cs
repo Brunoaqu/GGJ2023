@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject rootCurve;
 
-    public bool gameOver; 
-
     public string lastMove;
 
     void Awake() 
@@ -26,8 +24,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider){
         if (collider.gameObject.tag == "Rock") {
-            Debug.Log("dsadsa");
-            // Application.LoadLevel(Application.loadedLevel);
+            Application.LoadLevel(Application.loadedLevel);
+        }
+
+        if (collider.gameObject.tag == "Borda") {
+            Debug.Log("BorderHit");
+            Application.LoadLevel(Application.loadedLevel);
         }
     }
 
@@ -52,8 +54,7 @@ public class PlayerMovement : MonoBehaviour
             } else if(lastMove == "up"){
                 Instantiate(rootCurve,rootPos,Quaternion.Euler(0,180,-90));
             } else if(lastMove == "right"){
-                gameOver = true;
-                Debug.Log(gameOver);
+                Application.LoadLevel(Application.loadedLevel);
             }
 
             lastMove = "left";
@@ -77,8 +78,7 @@ public class PlayerMovement : MonoBehaviour
             } else if(lastMove == "up"){
                 Instantiate(rootCurve,rootPos,Quaternion.Euler(0,0,-90));
             } else if(lastMove == "left"){
-                gameOver = true;
-                Debug.Log(gameOver);
+                Application.LoadLevel(Application.loadedLevel);
             }
             
             lastMove = "right";
@@ -101,6 +101,8 @@ public class PlayerMovement : MonoBehaviour
                 Instantiate(rootCurve,rootPos,Quaternion.Euler(0,180,270));
             } else if(lastMove == "left"){
                 Instantiate(rootCurve,rootPos,Quaternion.Euler(0,0,270));
+            } else if(lastMove == "up"){
+                Application.LoadLevel(Application.loadedLevel);
             }
 
             lastMove = "down";
@@ -123,6 +125,8 @@ public class PlayerMovement : MonoBehaviour
                 Instantiate(rootCurve,rootPos,Quaternion.Euler(0,0,90));
             } else if(lastMove == "left"){
                 Instantiate(rootCurve,rootPos,Quaternion.Euler(0,180,90));
+            } else if(lastMove == "down"){
+                Application.LoadLevel(Application.loadedLevel);
             }
 
             lastMove = "up";

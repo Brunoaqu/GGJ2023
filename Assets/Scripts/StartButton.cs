@@ -19,7 +19,7 @@ public class StartButton : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             StartGame();
         }

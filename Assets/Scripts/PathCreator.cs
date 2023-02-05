@@ -7,6 +7,8 @@ public class PathCreator : MonoBehaviour
     public GameObject DangerTile;
     public GameObject SafeTile;
     public GameObject Root;
+
+    private List<GameObject> scenario = new List<GameObject> ();
     
     public int[,] mazeTiles = new int[5,5];
     Vector2Int size = new Vector2Int(5,5);
@@ -127,9 +129,17 @@ public class PathCreator : MonoBehaviour
                         break;
                 }
 
-                Instantiate(plot, new Vector3(((1.5f * x) - 1.5f *2)+xFix, ((-1.5f * y) + 1.5f *2)+yFix, 1), Quaternion.identity);
+                GameObject _new = (GameObject) Instantiate(plot, new Vector3(((1.5f * x) - 1.5f *2)+xFix, ((-1.5f * y) + 1.5f *2)+yFix, 3), Quaternion.identity);
+                scenario.Add(_new);
             }
         }
-        Instantiate(Root, new Vector3(-4.15f, 2.6f, 1), Quaternion.identity);
+        scenario.Add(Instantiate(Root, new Vector3(-4.15f, 2.6f, 2), Quaternion.identity));
+    }
+
+    public void Destroy()
+    {
+        foreach(GameObject obj in scenario) {
+            Destroy(obj);
+        }
     }
 }

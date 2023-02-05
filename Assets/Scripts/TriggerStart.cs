@@ -5,12 +5,18 @@ using UnityEngine;
 public class TriggerStart : MonoBehaviour
 {
     public PathCreator game;
+
     public GameObject DangerTile;
     public GameObject SafeTile;
     public GameObject Root;
 
     private GameObject currentRoot;
     private List<GameObject> currentScenario;
+
+    [SerializeField] private Chronometer chronometer;
+    [SerializeField] private Score score;
+    // [SerializeField] private LastScore lastscore;
+    private int counter = 1;
 
     public void Draw(int[,] mazeLogic)
     {
@@ -41,7 +47,6 @@ public class TriggerStart : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag == "Player") {
-
             Debug.Log("PlayerHit");
             Destroy(GameObject.FindWithTag("Player"));
 
@@ -52,7 +57,19 @@ public class TriggerStart : MonoBehaviour
                 Destroy(obj);
             }
 
+            if (counter % 5 == 0 && counter != 0) {
+                Debug.Log(counter);
+                Debug.Log(counter % 2);
+
+                chronometer.SetValue(chronometer.originalValue - 2);
+            }
+
+            chronometer.Reset();
+
             game.Draw(game.RandomMazeGenerator(5, 5, new Vector2Int(0,0), new Vector2Int(4,4)));
+            
+            score.Add();
+            counter++;
         }
     }
 }

@@ -8,6 +8,7 @@ public class PathCreator : MonoBehaviour
     public GameObject SafeTile;
     public GameObject Root;
 
+
     private List<GameObject> scenario = new List<GameObject> ();
     
     public int[,] mazeTiles = new int[5,5];

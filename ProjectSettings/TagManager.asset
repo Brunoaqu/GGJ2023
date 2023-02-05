@@ -9,6 +9,7 @@ TagManager:
   - Next
   - RootPrefab
   - Borda
+  - Score
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{   
+{
     public float speed;
     public GameObject roots;
     public float rootsY = 0;
@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject rootCurve;
 
+    [SerializeField] private Score score;
+    [SerializeField] private LastScore lastScore;
+
     public string lastMove;
 
     void Awake() 
@@ -22,14 +25,12 @@ public class PlayerMovement : MonoBehaviour
         lastMove = "down";
     }
 
-    private void OnTriggerEnter2D(Collider2D collider){
-        if (collider.gameObject.tag == "Rock") {
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Rock" || collider.gameObject.tag == "Borda") {
             Application.LoadLevel(Application.loadedLevel);
-        }
 
-        if (collider.gameObject.tag == "Borda") {
-            Debug.Log("BorderHit");
-            Application.LoadLevel(Application.loadedLevel);
+            Debug.Log(score.scoreValue);
+            lastScore.Set(score.scoreValue);
         }
     }
 
